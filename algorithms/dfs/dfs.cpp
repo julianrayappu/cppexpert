@@ -10,17 +10,7 @@
 
 using namespace std;
 
-ostream& operator<<(ostream& lhs, list<Node*> list)
-{
-	lhs << "list {";
-	for (Node* node : list)
-	{
-		lhs << node->getVal() << ", " ;
-	}
-	lhs << "}";
-
-	return lhs;
-}
+ostream& operator<<(ostream& lhs, list<Node*> list);
 
 void dfs(Node* current, list<Node*>& visited)
 {
@@ -48,6 +38,7 @@ void dfs(Node* current, list<Node*>& visited)
 	cout << "dfs complete for : " << current->getVal() << endl;
 }
 
+
 list<Node*> dfs(Node* start)
 {
 	list<Node*> visited;
@@ -56,6 +47,20 @@ list<Node*> dfs(Node* start)
 	dfs(start, visited);
 	return visited;
 }
+
+
+ostream& operator<<(ostream& lhs, list<Node*> list)
+{
+	lhs << "list {";
+	for (Node* node : list)
+	{
+		lhs << node->getVal() << ", " ;
+	}
+	lhs << "}";
+
+	return lhs;
+}
+
 
 Node* buildGraph()
 {

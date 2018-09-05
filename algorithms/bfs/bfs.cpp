@@ -8,34 +8,8 @@
 
 using namespace std;
 
-Node* buildGraph()
-{
-	Node* a = new Node('a');
-	Node* b = new Node('b');
-	Node* c = new Node('c');
-	Node* d = new Node('d');
-	Node* e = new Node('e');
-
-	a->add(b); a->add(c); a->add(d);
-	b->add(a); b->add(d);
-	c->add(a); c->add(d); c->add(e);
- 	d->add(c); d->add(e); d->add(b); d->add(a);
-	e->add(d); e->add(c);
-
-	return e;
-}
-
-ostream& operator<<(ostream& lhs, list<Node*>& rhs) 
-{
-	lhs << "list {";
-	for( Node* node : rhs)
-	{
-		lhs << ((node != NULL) ? node->getVal() : '?') << ", ";
-	}
-	lhs << "}";
-	
-	return lhs;
-}
+// signatures
+ostream& operator<<(ostream& lhs, list<Node*>& rhs) ;
 
 list<Node*> bfs(Node* start)
 {
@@ -81,6 +55,38 @@ list<Node*> bfs(Node* start)
 
 	return bfs_visited;
 }
+
+
+Node* buildGraph()
+{
+	Node* a = new Node('a');
+	Node* b = new Node('b');
+	Node* c = new Node('c');
+	Node* d = new Node('d');
+	Node* e = new Node('e');
+
+	a->add(b); a->add(c); a->add(d);
+	b->add(a); b->add(d);
+	c->add(a); c->add(d); c->add(e);
+ 	d->add(c); d->add(e); d->add(b); d->add(a);
+	e->add(d); e->add(c);
+
+	return e;
+}
+
+
+ostream& operator<<(ostream& lhs, list<Node*>& rhs) 
+{
+	lhs << "list {";
+	for( Node* node : rhs)
+	{
+		lhs << ((node != NULL) ? node->getVal() : '?') << ", ";
+	}
+	lhs << "}";
+	
+	return lhs;
+}
+
 
 int main()
 {
